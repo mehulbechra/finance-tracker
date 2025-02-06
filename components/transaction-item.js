@@ -24,6 +24,7 @@ export default function TransactionItem({
   const IconComponent = typesMap[type].icon;
   const colors = typesMap[type].colors;
   const formattedAmount = useFormatCurrency(amount);
+
   return (
     <div className="w-full flex items-center">
       <div className="flex items-center mr-4 grow">

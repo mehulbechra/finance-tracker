@@ -1,12 +1,8 @@
 import BaseTrend from "@/components/trend";
-import { createClient } from "@/lib/supabase/server";
+import { fetchTrend } from "@/lib/actions";
 
 export default async function Trend({ type, range }) {
-  const supabase = await createClient();
-  let { data, error } = await supabase.rpc("calculate_total", {
-    type_arg: type,
-    range_arg: range,
-  });
+  const { data, error } = await fetchTrend(type, range);
 
   if (error) throw new Error("Could not fetch trend data");
 
