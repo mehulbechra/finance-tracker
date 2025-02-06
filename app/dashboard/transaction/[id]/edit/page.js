@@ -1,6 +1,7 @@
 import TransactionForm from "@/app/dashboard/components/transaction-form";
 import { getTransaction } from "@/lib/actions";
 import { notFound } from "next/navigation";
+
 export const metadata = {
   title: "Edit Transaction",
 };
