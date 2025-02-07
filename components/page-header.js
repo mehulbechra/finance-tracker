@@ -2,9 +2,19 @@ import Link from "next/link";
 import DarkModeToggle from "./dark-mode-toggle";
 import ServerDarkMode from "@/lib/server-dark-mode";
 import React from "react";
+import { createClient } from "@/lib/supabase/server";
+import { CircleUser, KeyRound } from "lucide-react";
+import { sizes, variants } from "@/lib/variants";
+import SignOutButton from "./sign-out";
+import Avatar from "./avatar";
 
-export default function PageHeader({ className }) {
-  const theme = React.use(ServerDarkMode());
+export default async function PageHeader({ className }) {
+  const theme = await ServerDarkMode();
+  const supabase = await createClient();
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
   return (
     <header className={`flex justify-between items-center ${className}`}>
       <Link
@@ -13,9 +23,25 @@ export default function PageHeader({ className }) {
       >
         Finance App
       </Link>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center ">
         <DarkModeToggle defaultMode={theme} />
-        <div>User Dropdown</div>
+        {user && (
+          <Link
+            href="/dashboard/settings"
+            variant="ghost"
+            size="sm"
+            className={`flex items-center space-x-2 ${variants.ghost} ${sizes.sm}`}
+          >
+            <Avatar />
+            <span>{user.email}</span>
+          </Link>
+        )}
+        {user && <SignOutButton />}
+        {!user && (
+          <Link href="/login" className={`${variants.ghost} ${sizes.sm}`}>
+            <KeyRound className="w-6 h-6" />
+          </Link>
+        )}
       </div>
     </header>
   );
