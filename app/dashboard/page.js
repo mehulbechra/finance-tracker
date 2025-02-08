@@ -10,10 +10,10 @@ import { ErrorBoundary } from "react-error-boundary";
 import { types } from "@/lib/consts";
 import Range from "./components/range";
 import TransactionListWrapper from "./components/transaction-list-wrapper";
-import { getUser } from "@/lib/actions";
+import { getUserWithSession } from "@/lib/actions";
 
 export default async function Page({ searchParams }) {
-  const { user_metadata } = await getUser();
+  const { user_metadata } = await getUserWithSession();
   const searchP = await searchParams;
   const range = searchP?.range ?? user_metadata?.defaultView ?? "last30days";
 

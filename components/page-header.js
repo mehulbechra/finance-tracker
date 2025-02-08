@@ -2,18 +2,15 @@ import Link from "next/link";
 import DarkModeToggle from "./dark-mode-toggle";
 import ServerDarkMode from "@/lib/server-dark-mode";
 import React from "react";
-import { createClient } from "@/lib/supabase/server";
-import { CircleUser, KeyRound } from "lucide-react";
+import { KeyRound } from "lucide-react";
 import { sizes, variants } from "@/lib/variants";
 import SignOutButton from "./sign-out";
 import Avatar from "./avatar";
+import { getUserWithSession } from "@/lib/actions";
 
 export default async function PageHeader({ className }) {
   const theme = await ServerDarkMode();
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getUserWithSession();
   return (
     <header className={`flex justify-between items-center ${className}`}>
       <Link

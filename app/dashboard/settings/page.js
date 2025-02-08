@@ -1,8 +1,8 @@
-import { getUser } from "@/lib/actions";
+import { getUserWithSession } from "@/lib/actions";
 import SettingsForm from "./components/settings-form";
 
 export default async function SettingsPage() {
-  const { user_metadata } = await getUser();
+  const { user_metadata } = await getUserWithSession();
   return (
     <>
       <h1 className="text-4xl font-semibold mb-8">Settings</h1>
