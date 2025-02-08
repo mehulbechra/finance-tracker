@@ -18,7 +18,6 @@ const initialState = {
 
 export default function SettingsForm({ defaults }) {
   const [state, formAction] = useActionState(updateSettings, initialState);
-  console.log(state);
   return (
     <form className="space-y-4" action={formAction}>
       {state?.error && <AlertError message={state?.message} />}
