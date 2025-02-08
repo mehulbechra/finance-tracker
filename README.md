@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Finance Tracker
 
-## Getting Started
+Finance Tracker is a web application designed to help users monitor their financial activities, including income, expenses, savings, and investments. Built with Next.js and Tailwind CSS, it offers a user-friendly interface for efficient financial management.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Income Tracking**: Record and categorize various income sources.
+- **Expense Tracking**: Log expenses with categories for detailed analysis.
+- **Savings Management**: Monitor savings goals and progress.
+- **Investment Tracking**: Keep an eye on your investment portfolio.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Prerequisites
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Ensure you have the following installed:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Node.js](https://nodejs.org/) (version 18 or later)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the Repository**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/mehulbechra/finance-tracker.git
+   cd finance-tracker
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install Dependencies**:
 
-## Deploy on Vercel
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Start the Development Server**:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm run dev
+   ```
+
+   The application will be accessible at [http://localhost:3000](http://localhost:3000).
+
+## Project Structure
+
+- **`app/`**: Contains the main application components and pages.
+- **`components/`**: Reusable UI components.
+- **`lib/`**: Utility functions and libraries.
+- **`public/`**: Static assets like images and icons.
+- **`hooks/`**: Custom hooks.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/YourFeatureName`.
+3. Make your changes and commit them: `git commit -m 'Add some feature'`.
+4. Push to the branch: `git push origin feature/YourFeatureName`.
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+_Note: This README is based on the available project structure and standard practices. For detailed information, please refer to the project's source code._
