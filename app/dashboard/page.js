@@ -10,16 +10,19 @@ import { ErrorBoundary } from "react-error-boundary";
 import { types } from "@/lib/consts";
 import Range from "./components/range";
 import TransactionListWrapper from "./components/transaction-list-wrapper";
+import { getUser } from "@/lib/actions";
 
 export default async function Page({ searchParams }) {
+  const { user_metadata } = await getUser();
   const searchP = await searchParams;
-  const range = searchP?.range ?? "last30days";
+  const range = searchP?.range ?? user_metadata?.defaultView ?? "last30days";
+
   return (
     <div className="space-y-8">
       <section className="flex justify-between items-center">
         <h1 className="text-4xl font-semibold">Summary</h1>
         <aside>
-          <Range />
+          <Range defaultView={user_metadata?.defaultView} />
         </aside>
       </section>
 
