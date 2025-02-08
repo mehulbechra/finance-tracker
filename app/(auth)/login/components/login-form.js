@@ -14,12 +14,7 @@ export default function LoginForm() {
   return (
     <form action={formAction} className="space-y-2">
       <Input name="email" type="email" placeholder="name@example.com" />
-      <SubmitButton
-        type="submit"
-        size="sm"
-        className="w-full"
-        disabled={pending}
-      >
+      <SubmitButton type="submit" size="sm" className="w-full">
         Sign in with email
       </SubmitButton>
       <p

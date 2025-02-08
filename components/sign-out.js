@@ -7,7 +7,7 @@ export default function SignOutButton() {
   const [, action, pending] = useActionState(signOut, null);
   return (
     <form action={action}>
-      <SubmitButton variant="ghost" size="sm" disabled={pending}>
+      <SubmitButton variant="ghost" size="sm">
         <LogOut className="w-6 h-6" />
       </SubmitButton>
     </form>
