@@ -11,7 +11,7 @@ import { transactionSchema } from "@/lib/validation";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createTransaction, updateTransaction } from "@/lib/actions";
-import FormError from "@/components/error";
+import FormError from "@/components/form-error";
 
 export default function TransactionForm({ initialTransaction }) {
   const router = useRouter();
@@ -84,23 +84,23 @@ export default function TransactionForm({ initialTransaction }) {
         <div>
           <Label className="mb-1">Transaction Date</Label>
           <Input {...register("created_at")} disabled={editing} />
-          <FormError error={errors.created_at} />
+          <FormError error={errors.created_at?.message} />
         </div>
 
         <div>
           <Label className="mb-1">Amount</Label>
           <Input type="number" {...register("amount")} />
-          <FormError error={errors.amount} />
+          <FormError error={errors.amount?.message} />
         </div>
 
         <div className="col-span-1 md:col-span-2">
           <Label className="mb-1">Description</Label>
           <Input {...register("description")} />
-          <FormError error={errors.description} />
+          <FormError error={errors.description?.message} />
         </div>
       </div>
       <div className="flex justify-between items-center">
-        <div>{lastError && <FormError error={lastError} />}</div>
+        <div>{lastError && <FormError error={lastError?.message} />}</div>
         <Button type="submit" disabled={isSaving}>
           Save
         </Button>
